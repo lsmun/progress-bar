@@ -8,8 +8,19 @@ class Matrix {
 				this.matrix[i].push(false);
 			}
 		}
+        
+        
+        for(var i = 0; i < this.matrix.length; i++) {
+			for(var j = 0; j < this.matrix[i].length; j++) {
+					document.body.innerHTML += '<input type="checkbox" id="'+i+'-'+j+'">';
+                
+                    
+			}
+			document.body.innerHTML += "<br>";
 	}
-
+        
+    }
+    
 	get() {
 		return this.matrix;
 	}
@@ -20,34 +31,17 @@ class Matrix {
 
 	turnOn(x,y) {
 		this.matrix[x][y] = true;
+        document.getElementById(x+'-'+y).checked = true;
 	}
 
 	turnOff(x,y) {
 		this.matrix[x][y] = false;
+        document.getElementById(x+'-'+y).checked = false;
 	}
 
-	toString() {
-		for(var i = 0; i < this.matrix.length; i++) {
-			for(var j = 0; j < this.matrix[i].length; j++) {
-					document.body.innerHTML += '<input type="checkbox" id="'+i+'-'+j+'">';
-			}
-			document.body.innerHTML += "<br>";
-		}
-        for(var i = 0; i < this.matrix.length; i++) {
-			for(var j = 0; j < this.matrix[i].length; j++) {
-					if(this.matrix[i][j] == true){
-                        document.getElementById(i+'-'+j).checked = true; 
-                    }
-                    else if(this.matrix[i][j] == false){
-                        document.getElementById(i+'-'+j).checked = false;
-                    }
-                        
-			}
-		}
-        
-	}
     
 }
+
 
 // Testing
 var sampleMatrix = new Matrix(5,5);
