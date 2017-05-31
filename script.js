@@ -29,14 +29,24 @@ class Matrix {
 	toString() {
 		for(var i = 0; i < this.matrix.length; i++) {
 			for(var j = 0; j < this.matrix[i].length; j++) {
-				if(this.matrix[i][j] === true)
-					document.body.innerHTML += '<span><input type="checkbox"checked></span>';
-				else
-					document.body.innerHTML += '<span><input type="checkbox"></span>';
+					document.body.innerHTML += '<input type="checkbox" id="'+i+'-'+j+'">';
 			}
 			document.body.innerHTML += "<br>";
 		}
+        for(var i = 0; i < this.matrix.length; i++) {
+			for(var j = 0; j < this.matrix[i].length; j++) {
+					if(this.matrix[i][j] == true){
+                        document.getElementById(i+'-'+j).checked = true; 
+                    }
+                    else if(this.matrix[i][j] == false){
+                        document.getElementById(i+'-'+j).checked = false;
+                    }
+                        
+			}
+		}
+        
 	}
+    
 }
 
 // Testing
