@@ -30,9 +30,9 @@ class Matrix {
 		for(var i = 0; i < this.matrix.length; i++) {
 			for(var j = 0; j < this.matrix[i].length; j++) {
 				if(this.matrix[i][j] === true)
-					document.body.innerHTML += "*";
+					document.body.innerHTML += '<span><input type="checkbox"checked></span>';
 				else
-					document.body.innerHTML += "0";
+					document.body.innerHTML += '<span><input type="checkbox"></span>';
 			}
 			document.body.innerHTML += "<br>";
 		}
