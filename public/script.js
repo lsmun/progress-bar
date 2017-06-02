@@ -93,10 +93,31 @@ class Matrix {
             
             
     }
-    
-    
-    
+ 
 
+    getInfo(Latitude, Longitude){
+      
+        
+        var newLat = Latitude;
+        var newLong = Longitude;
+        
+        var theURL = 'https://crossorigin.me/http://samples.openweathermap.org/data/2.5/forecast?lat='+newLat+'&lon='+newLong+'&appid=b1b15e88fa797225412429c1c50c122a1';
+        
+        
+        console.log(theURL);
+        
+        
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", theURL, true ); 
+        //xmlHttp.setRequestHeader("Content-type", "application/json");
+        xmlHttp.send();
+        var response = xmlHttp.responseText;
+        
+        var text = JSON.parse(response);
+        
+        console.log(response);
+    }
+    
 
 }
 
@@ -110,7 +131,13 @@ var sampleMatrix = new Matrix(5,35);
 sampleMatrix.timedLoop();
 
 
+var Latitude = 40;
+var Longitude = -70;
 
+sampleMatrix.getInfo(Latitude, Longitude);
+
+
+//give timed loop a time and a temp parameter, normalize the temp inside timed loop and use that to fill a percentage of the bar, and same for time
 
     
 
