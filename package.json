@@ -1,0 +1,27 @@
+{
+  "name": "progress-bar",
+  "version": "1.0.0",
+  "description": "progress bar",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lsmun/progress-bar.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lsmun/progress-bar/issues"
+  },
+  "homepage": "https://github.com/lsmun/progress-bar#readme",
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "express": "^4.15.3",
+    "mongoose": "^4.10.4"
+  }
+}

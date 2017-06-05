@@ -1,86 +1,66 @@
 
 class Matrix {
-
-  
-
-
+	/* Constructor for Matrix object */
 	constructor(x,y) {
 		this.matrix = new Array();
         
-		for(var i = 0; i < x; i++) {
-            
+        // Initialize matrix
+		for(var i = 0; i < x; i++) { 
 			this.matrix.push(new Array());
-            
 			for(var j = 0; j < y; j++) {
-                
 				this.matrix[i].push(false);
 			}
 		}
-        
-        
-        
-        for(var i = 0; i < this.matrix.length; i++) {
+
+		// Print matrix
+		for(var i = 0; i < this.matrix.length; i++) {
 			for(var j = 0; j < this.matrix[i].length; j++) {
-					document.body.innerHTML += '<input type="checkbox" id="'+i+'-'+j+'">';
-                    
-                    
+				document.body.innerHTML += '<input type="checkbox" id="'+i+'-'+j+'">';
 			}
 			document.body.innerHTML += "<br>";
-             
         }
-        
-        
     }
     
+    /* Returns THIS Matrix object */
 	get() {
 		return this.matrix;
 	}
 
+	/* Returns TRUE or FALSE for a state in x,y */
 	state(x,y) {
 		return this.matrix[x][y];
 	}
     
-    
-
+    /* Sets state and checked attribute in x,y to TRUE */
 	turnOn(x,y) {
 		this.matrix[x][y] = true;
         document.getElementById(x+'-'+y).checked = true;
 	}
 
+    /* Sets state and checked attribute in x,y to FALSE */
 	turnOff(x,y) {
 		this.matrix[x][y] = false;
         document.getElementById(x+'-'+y).checked = false;
-        
 	}
     
     
     timedLoop(tempArray){
-        
         var newTempArray = tempArray;
-        
-
         var newMatrix = this.matrix;
         var rows = this.matrix.length;
         var columns = this.matrix[0].length;
         
         var tempFractionArray = new Array(rows);
-        
         for(var i = 0; i < rows ; i++){   
             tempFractionArray[i] = newTempArray[i]/ 300.0;
         }
         
-     
         var columnGoToArray = new Array(rows);
-        
         for(var j = 0; j < rows ; j++){
-            
             columnGoToArray[j] = Math.floor(tempFractionArray[j] * columns);
-                   
         }
         
         var columnGoTo;
-         
-        
         for(var i = 0; i < rows; i++){
             for(var k = 0; k < columns; k++) {
                 if(k < columnGoToArray[i]) {
@@ -135,17 +115,13 @@ class Matrix {
     }
     */
     getInfo(data,matrixLength){
-      
-    
         var text = JSON.parse(data);
-        
         var tempArray = new Array(matrixLength);
         
         for(var i = 0 ; i < matrixLength; i++){
-            
             tempArray[i]=text.list[i].main.temp;
         }
-            
+
         return tempArray;
     }
 }
@@ -177,20 +153,3 @@ var Longitude = -70;
 
 
 //give timed loop a time and a temp parameter, normalize the temp inside timed loop and use that to fill a percentage of the bar, and same for time
-
-    
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
